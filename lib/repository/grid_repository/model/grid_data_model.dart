@@ -30,11 +30,7 @@ class GridDataModel extends Equatable {
   factory GridDataModel.fromJson(Map<String, dynamic> json) {
     return GridDataModel(
       id: json['id'] as String,
-      field: (json['field'] as List)
-          .map((row) => row is List
-              ? row.map((cell) => cell.toString()).toList()
-              : <String>[row.toString()])
-          .toList(),
+      field: List<List<String>>.from(json['field'].map((row) => row.split(''))),
       start: CoordinateModel.fromJson(json['start'] as Map<String, dynamic>),
       end: CoordinateModel.fromJson(json['end'] as Map<String, dynamic>),
     );

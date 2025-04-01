@@ -68,6 +68,6 @@ class PathFinder {
         }
       }
     }
-    return []; // Якщо шлях не знайдено
+    return [];
   }
 }

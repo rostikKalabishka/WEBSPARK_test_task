@@ -23,7 +23,6 @@ class ResponseDataBloc extends Bloc<ResponseDataEvent, ResponseDataState> {
       final ResponseDataModel responseData =
           await _gridRepository.getGridResponseData(url: event.url);
 
-      print(responseData.toJson());
       emit(ResponseDataSuccess(responseData: responseData));
     } catch (e) {
       emit(ResponseDataFailure(error: e));

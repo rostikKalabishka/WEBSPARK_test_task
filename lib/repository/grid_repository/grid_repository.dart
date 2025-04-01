@@ -1,10 +1,11 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
-import 'package:webspark_test_task/repository/grid_repository/model/coordinate_model.dart';
-import 'package:webspark_test_task/repository/grid_repository/model/grid_data_model.dart';
+
 import 'package:webspark_test_task/repository/grid_repository/model/response_data_model.dart';
-import 'package:webspark_test_task/utils/helpers/algorithm/bfs.dart';
 
 import 'grid.dart';
+import 'model/send_result_model.dart';
 
 class GridRepository implements GridRepositoryInterface {
   final Dio dio = Dio();
@@ -26,7 +27,15 @@ class GridRepository implements GridRepositoryInterface {
   }
 
   @override
-  Future<void> sendData() async {
-    try {} catch (e) {}
+  Future<void> sendData({required List<SendResultModel> res}) async {
+    try {
+      final resultList = res.map((e) => e.toJson()).toList();
+      await dio.post(baseUrl, data: resultList).then((val) {
+        print(val);
+        log(val.statusCode.toString());
+      });
+    } catch (e) {
+      rethrow;
+    }
   }
 }

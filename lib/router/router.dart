@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
+import '../repository/grid_repository/model/models.dart';
 import '../screens/home_screen/view.dart';
 import '../screens/preview_screen/view.dart';
 import '../screens/process_screen/view.dart';
@@ -22,6 +24,10 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           page: ResultListRoute.page,
           path: '/process_screen/result_list_screen',
+        ),
+        AutoRoute(
+          page: PreviewRoute.page,
+          path: '/process_screen/result_list_screen/preview_screen',
         ),
       ];
 }

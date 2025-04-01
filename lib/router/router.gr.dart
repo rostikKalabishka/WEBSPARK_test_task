@@ -28,18 +28,39 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PreviewScreen]
-class PreviewRoute extends PageRouteInfo<void> {
-  const PreviewRoute({List<PageRouteInfo>? children})
-    : super(PreviewRoute.name, initialChildren: children);
+class PreviewRoute extends PageRouteInfo<PreviewRouteArgs> {
+  PreviewRoute({
+    Key? key,
+    required ResultModel resultModel,
+    List<PageRouteInfo>? children,
+  }) : super(
+         PreviewRoute.name,
+         args: PreviewRouteArgs(key: key, resultModel: resultModel),
+         initialChildren: children,
+       );
 
   static const String name = 'PreviewRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const PreviewScreen();
+      final args = data.argsAs<PreviewRouteArgs>();
+      return PreviewScreen(key: args.key, resultModel: args.resultModel);
     },
   );
+}
+
+class PreviewRouteArgs {
+  const PreviewRouteArgs({this.key, required this.resultModel});
+
+  final Key? key;
+
+  final ResultModel resultModel;
+
+  @override
+  String toString() {
+    return 'PreviewRouteArgs{key: $key, resultModel: $resultModel}';
+  }
 }
 
 /// generated route for
@@ -60,16 +81,37 @@ class ProcessRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ResultListScreen]
-class ResultListRoute extends PageRouteInfo<void> {
-  const ResultListRoute({List<PageRouteInfo>? children})
-    : super(ResultListRoute.name, initialChildren: children);
+class ResultListRoute extends PageRouteInfo<ResultListRouteArgs> {
+  ResultListRoute({
+    Key? key,
+    required List<SendResultModel> results,
+    List<PageRouteInfo>? children,
+  }) : super(
+         ResultListRoute.name,
+         args: ResultListRouteArgs(key: key, results: results),
+         initialChildren: children,
+       );
 
   static const String name = 'ResultListRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const ResultListScreen();
+      final args = data.argsAs<ResultListRouteArgs>();
+      return ResultListScreen(key: args.key, results: args.results);
     },
   );
+}
+
+class ResultListRouteArgs {
+  const ResultListRouteArgs({this.key, required this.results});
+
+  final Key? key;
+
+  final List<SendResultModel> results;
+
+  @override
+  String toString() {
+    return 'ResultListRouteArgs{key: $key, results: $results}';
+  }
 }

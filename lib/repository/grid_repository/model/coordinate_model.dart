@@ -22,4 +22,7 @@ class CoordinateModel extends Equatable {
       y: json['y'] as int,
     );
   }
+
+  @override
+  String toString() => '($x,$y)';
 }
