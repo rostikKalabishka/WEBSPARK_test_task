@@ -6,16 +6,17 @@ import 'package:webspark_test_task/blocs/send_result_bloc/send_result_bloc.dart'
 import 'package:webspark_test_task/router/router.dart';
 
 import 'repository/grid_repository/grid.dart';
-import 'utils/helpers/algorithm/bfs.dart';
+import 'ui/theme/theme.dart';
+import 'library/algorithm/bfs.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class WebsparkTestTask extends StatefulWidget {
+  const WebsparkTestTask({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<WebsparkTestTask> createState() => _WebsparkTestTaskState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _WebsparkTestTaskState extends State<WebsparkTestTask> {
   final _router = AppRouter();
   final GridRepository gridRepository = GridRepository();
   final PathFinder pathFinder = PathFinder();
@@ -33,9 +34,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'WEBSPARK test task',
-        theme: ThemeData(
-          useMaterial3: true,
-        ),
+        theme: theme,
         routerConfig: _router.config(),
       ),
     );

@@ -33,13 +33,13 @@ class ResultListScreen extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  AutoRouter.of(context)
-                      .push(PreviewRoute(resultModel: results[index].result));
+                  AutoRouter.of(context).push(PreviewRoute(
+                      resultModel: results[index].result, index: index));
                 },
               ),
             )
           : const Center(
-              child: Text('Something went wrong...'),
+              child: Text('Something has gone wrong.'),
             ),
     );
   }

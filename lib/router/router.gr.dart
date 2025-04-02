@@ -32,10 +32,15 @@ class PreviewRoute extends PageRouteInfo<PreviewRouteArgs> {
   PreviewRoute({
     Key? key,
     required ResultModel resultModel,
+    required int index,
     List<PageRouteInfo>? children,
   }) : super(
          PreviewRoute.name,
-         args: PreviewRouteArgs(key: key, resultModel: resultModel),
+         args: PreviewRouteArgs(
+           key: key,
+           resultModel: resultModel,
+           index: index,
+         ),
          initialChildren: children,
        );
 
@@ -45,21 +50,31 @@ class PreviewRoute extends PageRouteInfo<PreviewRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<PreviewRouteArgs>();
-      return PreviewScreen(key: args.key, resultModel: args.resultModel);
+      return PreviewScreen(
+        key: args.key,
+        resultModel: args.resultModel,
+        index: args.index,
+      );
     },
   );
 }
 
 class PreviewRouteArgs {
-  const PreviewRouteArgs({this.key, required this.resultModel});
+  const PreviewRouteArgs({
+    this.key,
+    required this.resultModel,
+    required this.index,
+  });
 
   final Key? key;
 
   final ResultModel resultModel;
 
+  final int index;
+
   @override
   String toString() {
-    return 'PreviewRouteArgs{key: $key, resultModel: $resultModel}';
+    return 'PreviewRouteArgs{key: $key, resultModel: $resultModel, index: $index}';
   }
 }
 

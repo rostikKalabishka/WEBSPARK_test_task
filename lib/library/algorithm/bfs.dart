@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import '../../../repository/grid_repository/model/models.dart';
+import '../../repository/grid_repository/model/models.dart';
 
 const List<List<CoordinateModel>> directions = [
   [

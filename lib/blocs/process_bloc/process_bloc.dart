@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:webspark_test_task/blocs/process_bloc/process_state.dart';
 
 import '../../repository/grid_repository/model/models.dart';
-import '../../utils/helpers/algorithm/bfs.dart';
+import '../../library/algorithm/bfs.dart';
 
 part 'process_event.dart';
 
